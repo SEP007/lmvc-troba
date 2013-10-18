@@ -144,7 +144,7 @@ function generate($max_i, $max_j, $max_k)
         $c->remark = 'A remark for a company with the name ' . $c->name;
         EQM::insert($c);
         $p = new Project();
-        for ($j = 1; $j <= $max_j; $j++) {
+        for ($j = 0; $j < $max_j; $j++) {
             $p->id = $c->id . '_' . ($j + 1) . '_PROJECT';
             $p->companyId = $c->id;
             $p->name = 'A project with the id ' . $p->id;

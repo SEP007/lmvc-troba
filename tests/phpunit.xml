@@ -1,10 +1,17 @@
 <phpunit bootstrap="troba/EQM/bootstrap.php" verbose="true" convertWarningsToExceptions="false" colors="true">
     <testsuites>
         <testsuite name="Utils">
-           <directory suffix=".php">troba/Utils</directory>
+           <file>tests/troba/EQM/StringUtilsTest.php</file>
         </testsuite>
         <testsuite name="EQM">
-           <directory suffix=".php">troba/EQM</directory>
+           <file>tests/troba/EQM/ConventionHandlerTest.php</file>
+           <file>tests/troba/EQM/EQMQueryArrayTest.php</file>
+           <file>tests/troba/EQM/EQMInsertTest.php</file>
+           <file>tests/troba/EQM/EQMUpdateTest.php</file>
+           <file>tests/troba/EQM/EQMDeleteTest.php</file>
+           <file>tests/troba/EQM/EQMTransactionTest.php</file>
+           <file>tests/troba/EQM/EQMQueryObjectTest.php</file>
+           <file>tests/troba/EQM/ModelFindersTest.php</file>
         </testsuite>
     </testsuites>
 
