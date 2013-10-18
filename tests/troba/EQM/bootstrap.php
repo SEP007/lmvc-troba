@@ -2,8 +2,9 @@
 namespace Bootstrap;
 # Load libs an register class loader
 
-require_once '../lib/troba/Util/ClassLoader.php';
-$loader = new \troba\Util\ClassLoader('troba', '../lib');
+require_once 'lib/troba/Util/ClassLoader.php';
+
+$loader = new \troba\Util\ClassLoader('troba', '../../../lib');
 $loader->register();
 
 use \troba\EQM\EQM;
@@ -17,6 +18,7 @@ EQM::initialize([
     'password' => 'boot',
     EQM::RUN_MODE => EQM::DEV_MODE
 ]);
+
 # second_db
 EQM::initialize([
     'dsn' => 'mysql:host=localhost;dbname=orm_test2',
@@ -25,19 +27,20 @@ EQM::initialize([
     EQM::CONVENTION_HANDLER => new ClassicConventionHandler(),
     EQM::RUN_MODE => EQM::DEV_MODE
 ], 'second_db');
+
 # Delete all tables from 'default' connection
 try {
-    EQM::nativeExecute("DROP TABLE Company");
+    EQM::nativeExecute("DROP TABLE IF EXISTS Company");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
 try {
-    EQM::nativeExecute("DROP TABLE Project");
+    EQM::nativeExecute("DROP TABLE IF EXISTS Project");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
 try {
-    EQM::nativeExecute("DROP TABLE ProjectActivity");
+    EQM::nativeExecute("DROP TABLE IF EXISTS ProjectActivity");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
@@ -71,17 +74,17 @@ EQM::nativeExecute("
 EQM::activateConnection('second_db');
 # Delete all tables from 'second_db_ connection
 try {
-    EQM::nativeExecute("DROP TABLE company");
+    EQM::nativeExecute("DROP TABLE IF EXISTS company");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
 try {
-    EQM::nativeExecute("DROP TABLE project");
+    EQM::nativeExecute("DROP TABLE IF EXISTS project");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
 try {
-    EQM::nativeExecute("DROP TABLE project_activity");
+    EQM::nativeExecute("DROP TABLE IF EXISTS project_activity");
 } catch (EQMException $e) {
     var_dump($e->getMessage());
 }
