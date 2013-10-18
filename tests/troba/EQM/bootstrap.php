@@ -14,16 +14,16 @@ use troba\EQM\ClassicConventionHandler;
 # default
 EQM::initialize([
     'dsn' => 'mysql:host=localhost;dbname=orm_test',
-    'username' => 'root',
-    'password' => 'boot',
+    'username' => 'travis',
+    'password' => '',
     EQM::RUN_MODE => EQM::DEV_MODE
 ]);
 
 # second_db
 EQM::initialize([
     'dsn' => 'mysql:host=localhost;dbname=orm_test2',
-    'username' => 'root',
-    'password' => 'boot',
+    'username' => 'travis',
+    'password' => '',
     EQM::CONVENTION_HANDLER => new ClassicConventionHandler(),
     EQM::RUN_MODE => EQM::DEV_MODE
 ], 'second_db');
