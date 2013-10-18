@@ -9,6 +9,8 @@ php:
 env:
   - DB=mysql
 before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('boot') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - echo "USE mysql;\nCREATE DATABASE orm_test;\nCREATE DATABASE orm_test2;"
   - phpenv config-add .travis.ini
   - composer install
 script: sh scripts/test.sh
