@@ -88,19 +88,6 @@ class EQMUpdateTest extends PHPUnit_Framework_TestCase
             'params' => $c->id
         ])->one()->remark);
 
-        $p = EQM::queryByArray([
-            'entity' => new Bootstrap\Project(),
-            'query' => 'id = ?',
-            'params' => $c->id . '_PROJECT'
-        ])->one();
-        $p->name = $p->name . ' from testUpdate(Project)';
-        EQM::update($p);
-        $this->assertEquals($p->name, EQM::queryByArray([
-            'entity' => new Bootstrap\Project(),
-            'query' => 'id = ?',
-            'params' => $p->id
-        ])->one()->name);
-
         $pa = EQM::queryByArray([
             'entity' => new Bootstrap\ProjectActivity(),
             'query' => 'id = ? AND projectId = ?',
