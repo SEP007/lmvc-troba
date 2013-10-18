@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/SEP007/lmvc-troba.png)](https://travis-ci.org/SEP007/lmvc-troba)
+[![Coverage Status](https://coveralls.io/repos/SEP007/lmvc-troba/badge.png)](https://coveralls.io/r/SEP007/lmvc-troba)
+[![Dependency Status](https://www.versioneye.com/user/projects/526130a6632bac1779001976/badge.png)](https://www.versioneye.com/user/projects/526130a6632bac1779001976)
+
 troba
 =====
 
