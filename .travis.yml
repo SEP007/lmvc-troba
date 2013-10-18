@@ -1,0 +1,19 @@
+notifications:
+  email: false
+  hipchat:
+    - secure: "PvQ2OERYfhtEZQz/8Sp4eg+cVsPi3xkKMkZOOoFPwByKFgMXpAkZvf9cxjFD7AdSmyWCHj+7NKv00dkZqE0YTa22SUYpdaM0BlJKmp6PAW1PME/9zJdgukfD3vB6YDe4JTelXX7TBBnO6NhJl4f8uoY1siv2W7igi05f0ymE7sc="
+language: php
+php:
+  - 5.4
+  - 5.5
+env:
+  - DB=mysql
+before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('boot') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -e 'create database orm_test;'
+  - mysql -e 'create database orm_test2;'
+  - phpenv config-add .travis.ini
+  - composer install
+script: sh scripts/test.sh
+after_script:
+  - php bin/coveralls

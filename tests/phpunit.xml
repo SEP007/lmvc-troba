@@ -1,15 +1,23 @@
-<phpunit bootstrap="./troba/EQM/bootstrap.php">
+<phpunit bootstrap="troba/EQM/bootstrap.php" verbose="true" convertWarningsToExceptions="false" colors="true">
     <testsuites>
-        <testsuite name="troba Test Suite">
-            <file>./troba/Utils/StringUtilsTest.php</file>
-            <file>./troba/EQM/ConventionHandlerTest.php</file>
-            <file>./troba/EQM/EQMQueryArrayTest.php</file>
-            <file>./troba/EQM/EQMInsertTest.php</file>
-            <file>./troba/EQM/EQMUpdateTest.php</file>
-            <file>./troba/EQM/EQMDeleteTest.php</file>
-            <file>./troba/EQM/EQMTransactionTest.php</file>
-            <file>./troba/EQM/EQMQueryObjectTest.php</file>
-            <file>./troba/EQM/ModelFindersTest.php</file>
+        <testsuite name="Utils">
+           <file>tests/troba/EQM/StringUtilsTest.php</file>
+        </testsuite>
+        <testsuite name="EQM">
+           <file>tests/troba/EQM/ConventionHandlerTest.php</file>
+           <file>tests/troba/EQM/EQMQueryArrayTest.php</file>
+           <file>tests/troba/EQM/EQMInsertTest.php</file>
+           <file>tests/troba/EQM/EQMUpdateTest.php</file>
+           <file>tests/troba/EQM/EQMDeleteTest.php</file>
+           <file>tests/troba/EQM/EQMTransactionTest.php</file>
+           <file>tests/troba/EQM/EQMQueryObjectTest.php</file>
+           <file>tests/troba/EQM/ModelFindersTest.php</file>
         </testsuite>
     </testsuites>
+
+    <logging>
+       <log type="coverage-html" target="logs/report" charset="UTF-8" highlight="false" lowUpperBound="35" highLowerBound="70" />
+       <log type="coverage-clover" target="logs/clover.xml" />
+       <log type="coverage-php" target="logs/coverage.cov"/>
+    </logging>
 </phpunit>

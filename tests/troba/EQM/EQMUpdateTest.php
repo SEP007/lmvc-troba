@@ -93,6 +93,7 @@ class EQMUpdateTest extends PHPUnit_Framework_TestCase
             'query' => 'id = ?',
             'params' => $c->id . '_PROJECT'
         ])->one();
+
         $p->name = $p->name . ' from testUpdate(Project)';
         EQM::update($p);
         $this->assertEquals($p->name, EQM::queryByArray([

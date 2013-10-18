@@ -154,15 +154,6 @@ class EQMInsertTest extends PHPUnit_Framework_TestCase
 
     public function testInsertError()
     {
-        $c = new Company();
-        try {
-            EQM::insert($c);
-            $r = true;
-        } catch (EQMException $e) {
-            $r = false;
-        }
-        $this->assertFalse($r);
-
         $c = new Bootstrap\Company();
         try {
             EQM::insert($c);
@@ -176,15 +167,6 @@ class EQMInsertTest extends PHPUnit_Framework_TestCase
         $c->remark = 'no no not good';
         try {
             EQM::insert($c);
-            $r = true;
-        } catch (EQMException $e) {
-            $r = false;
-        }
-        $this->assertFalse($r);
-
-        $p = new Project();
-        try {
-            EQM::insert($p);
             $r = true;
         } catch (EQMException $e) {
             $r = false;
